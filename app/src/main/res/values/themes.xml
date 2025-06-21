@@ -1,9 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Prm324" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.Prm392" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Áp dụng màu -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorError">@color/errorColor</item>
+        <item name="android:colorBackground">@color/backgroundColor</item>
+
+        <!-- Màu chữ trên nền -->
+        <item name="android:textColorPrimary">@color/textPrimary</item>
+        <item name="android:textColorSecondary">@color/textSecondary</item>
     </style>
 
-    <style name="Theme.Prm324" parent="Base.Theme.Prm324" />
+    <style name="Theme.Prm392" parent="Base.Theme.Prm392" />
 </resources>
