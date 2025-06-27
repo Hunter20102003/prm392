@@ -21,25 +21,83 @@ import androidx.room.PrimaryKey;
 public class OrderItem {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "order_item_id")
-    public int orderItemId;
+    private Integer orderItemId;
 
     @ColumnInfo(name = "order_id")
     @NonNull
-    public int orderId;
+    public Integer orderId;
 
     @ColumnInfo(name = "product_id")
     @NonNull
-    public int productId;
+    public Integer productId;
 
     @ColumnInfo(name = "quantity")
     @NonNull
-    public int quantity;
+    public Integer quantity;
 
     @ColumnInfo(name = "unit_price")
     @NonNull
-    public double unitPrice;
+    public Double unitPrice;
 
     @ColumnInfo(name = "total_price")
     @NonNull
-    public double totalPrice;
+    public Double totalPrice;
+
+    public OrderItem() {
+    }
+
+
+
+    public Integer getOrderItemId() {
+        return orderItemId;
+    }
+
+    public void setOrderItemId(Integer orderItemId) {
+        this.orderItemId = orderItemId;
+    }
+
+    @NonNull
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(@NonNull Integer orderId) {
+        this.orderId = orderId;
+    }
+
+    @NonNull
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(@NonNull Integer productId) {
+        this.productId = productId;
+    }
+
+    @NonNull
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(@NonNull Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    @NonNull
+    public Double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(@NonNull Double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+    @NonNull
+    public Double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(@NonNull Double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 }

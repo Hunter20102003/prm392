@@ -15,15 +15,32 @@ import androidx.room.PrimaryKey;
 public class ShoppingCart {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "cart_id")
-    public int cartId;
+    private Integer cartId;
 
     @ColumnInfo(name = "user_id")
     @NonNull
-    public int userId;
+    private Integer userId;
 
-    @ColumnInfo(name = "created_at")
-    public String createdAt;
 
-    @ColumnInfo(name = "updated_at")
-    public String updatedAt;
+    public ShoppingCart() {
+    }
+
+    public Integer getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(Integer cartId) {
+        this.cartId = cartId;
+    }
+
+    @NonNull
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(@NonNull Integer userId) {
+        this.userId = userId;
+    }
+
+
 }

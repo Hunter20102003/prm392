@@ -12,21 +12,55 @@ import androidx.room.PrimaryKey;
 public class Category {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "category_id")
-    public int categoryId;
+    private Integer categoryId;
 
     @ColumnInfo(name = "name")
     @NonNull
-    public String name;
+    private String name;
 
     @ColumnInfo(name = "description")
-    public String description;
+    private String description;
 
     @ColumnInfo(name = "image_url")
-    public String imageUrl;
+    private String imageUrl;
 
-    @ColumnInfo(name = "created_at")
-    public String createdAt;
+    public Category() {
+    }
 
-    @ColumnInfo(name = "updated_at")
-    public String updatedAt;
+
+
+    public Integer getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    @NonNull
+    public String getName() {
+        return name;
+    }
+
+    public void setName(@NonNull String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+
 }

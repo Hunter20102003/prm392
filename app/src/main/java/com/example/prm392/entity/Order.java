@@ -17,36 +17,121 @@ import com.example.prm392.enums.PaymentStatus;
 public class Order {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "order_id")
-    public int orderId;
+    private Integer orderId;
 
     @ColumnInfo(name = "user_id")
     @NonNull
-    public int userId;
+    private Integer userId;
 
     @ColumnInfo(name = "order_date")
-    public String orderDate;
+    private String orderDate;
 
     @ColumnInfo(name = "total_price")
-    public Double totalPrice;
+    private Double totalPrice;
 
     @ColumnInfo(name = "total_amount")
     @NonNull
-    public double totalAmount;
+    private double totalAmount;
 
     @ColumnInfo(name = "status")
-    public OrderStatus orderStatus=OrderStatus.PENDING;
+    private OrderStatus orderStatus=OrderStatus.PENDING;
 
     @ColumnInfo(name = "shipping_address")
     @NonNull
-    public String shippingAddress;
+    private String shippingAddress;
 
     @ColumnInfo(name = "payment_method")
     @NonNull
-    public PaymentMethod paymentMethod=PaymentMethod.WALLET;
+    private PaymentMethod paymentMethod=PaymentMethod.WALLET;
 
     @ColumnInfo(name = "payment_status")
-    public PaymentStatus paymentStatus=PaymentStatus.PAID;
+    private PaymentStatus paymentStatus=PaymentStatus.PAID;
 
     @ColumnInfo(name = "notes")
-    public String notes;
+    private String notes;
+
+    public Order() {
+    }
+
+
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
+
+    @NonNull
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(@NonNull Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public Double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    @NonNull
+    public String getShippingAddress() {
+        return shippingAddress;
+    }
+
+    public void setShippingAddress(@NonNull String shippingAddress) {
+        this.shippingAddress = shippingAddress;
+    }
+
+    @NonNull
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(@NonNull PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+    public PaymentStatus getPaymentStatus() {
+        return paymentStatus;
+    }
+    public void setPaymentStatus(PaymentStatus paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
 }

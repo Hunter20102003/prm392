@@ -5,6 +5,10 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Entity(tableName = "reviews",
         foreignKeys = {
                 @ForeignKey(entity = User.class,
@@ -20,23 +24,78 @@ import androidx.room.PrimaryKey;
 public class Review {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "review_id")
-    public int reviewId;
+    private Integer reviewId;
 
     @ColumnInfo(name = "user_id")
     @NonNull
-    public int userId;
+        private Integer userId;
 
     @ColumnInfo(name = "product_id")
     @NonNull
-    public int productId;
+    private Integer productId;
 
     @ColumnInfo(name = "rating")
     @NonNull
-    public int rating;
+    private Integer rating;
 
     @ColumnInfo(name = "comment")
-    public String comment;
+    private String comment;
 
     @ColumnInfo(name = "review_date")
-    public String reviewDate;
+    private LocalDate reviewDate;
+
+    public Review() {
+    }
+
+
+    public Integer getReviewId() {
+        return reviewId;
+    }
+
+    public void setReviewId(Integer reviewId) {
+        this.reviewId = reviewId;
+    }
+
+    @NonNull
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(@NonNull Integer userId) {
+        this.userId = userId;
+    }
+
+    @NonNull
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(@NonNull Integer productId) {
+        this.productId = productId;
+    }
+
+    @NonNull
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(@NonNull Integer rating) {
+        this.rating = rating;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public LocalDate getReviewDate() {
+        return reviewDate;
+    }
+
+    public void setReviewDate(LocalDate reviewDate) {
+        this.reviewDate = reviewDate;
+    }
 }
