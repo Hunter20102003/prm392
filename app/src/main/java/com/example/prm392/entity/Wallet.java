@@ -1,6 +1,7 @@
 package com.example.prm392.entity;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
+import androidx.room.Dao;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
@@ -14,21 +15,52 @@ import androidx.room.PrimaryKey;
 public class Wallet {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "wallet_id")
-    public int walletId;
+    private Integer walletId;
 
     @ColumnInfo(name = "user_id")
     @NonNull
-    public int userId;
+    private Integer userId;
 
     @ColumnInfo(name = "balance")
-    public double balance = 0.00;
+    private Double balance = 0.00;
 
     @ColumnInfo(name = "is_active")
-    public boolean isActive = true;
+    private Boolean isActive = true;
 
-    @ColumnInfo(name = "created_at")
-    public String createdAt;
 
-    @ColumnInfo(name = "updated_at")
-    public String updatedAt;
+    public Wallet() {
+    }
+
+    public Integer getWalletId() {
+        return walletId;
+    }
+
+    public void setWalletId(Integer walletId) {
+        this.walletId = walletId;
+    }
+
+    @NonNull
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(@NonNull Integer userId) {
+        this.userId = userId;
+    }
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
 }

@@ -6,42 +6,127 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import com.example.prm392.enums.UserRole;
 
+import java.time.LocalDateTime;
+
 @Entity(tableName = "users")
 public class User {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "user_id")
-    public int userId;
+    private Integer userId;
 
     @ColumnInfo(name = "email")
     @NonNull
-    public String email;
+    private String email;
 
     @ColumnInfo(name = "password")
     @NonNull
-    public String password;
+    private String password;
 
     @ColumnInfo(name = "full_name")
     @NonNull
-    public String fullName;
+    private String fullName;
 
     @ColumnInfo(name = "phone")
-    public String phone;
-
-    @ColumnInfo(name = "address")
-    public String address;
+    private String phone;
 
     @ColumnInfo(name = "image_url")
-    public String imageUrl;
+    private String imageUrl;
 
     @ColumnInfo(name = "role")
-    public UserRole role = UserRole.USER;
+    private UserRole role = UserRole.USER;
 
     @ColumnInfo(name = "created_at")
-    public String createdAt;
+    private LocalDateTime createdAt;
 
     @ColumnInfo(name = "updated_at")
-    public String updatedAt;
+    private LocalDateTime updatedAt;
 
     @ColumnInfo(name = "is_active")
-    public boolean isActive = true;
+    private Boolean isActive = true;
+
+    public User() {
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    @NonNull
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(@NonNull String email) {
+        this.email = email;
+    }
+
+    @NonNull
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(@NonNull String password) {
+        this.password = password;
+    }
+
+    @NonNull
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(@NonNull String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
 }

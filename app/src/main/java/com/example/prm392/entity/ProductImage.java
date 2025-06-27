@@ -15,16 +15,54 @@ import androidx.room.PrimaryKey;
 public class ProductImage {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "image_id")
-    public int imageId;
+    private Integer imageId;
 
     @ColumnInfo(name = "product_id")
     @NonNull
-    public int productId;
+    private Integer productId;
 
     @ColumnInfo(name = "image_url")
     @NonNull
-    public String imageUrl;
+    private String imageUrl;
 
     @ColumnInfo(name = "is_primary")
-    public boolean isPrimary = false;
+    private Boolean isPrimary = false;
+
+    public ProductImage() {
+    }
+
+
+    public Integer getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(Integer imageId) {
+        this.imageId = imageId;
+    }
+
+    @NonNull
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(@NonNull Integer productId) {
+        this.productId = productId;
+    }
+
+    @NonNull
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(@NonNull String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public Boolean getPrimary() {
+        return isPrimary;
+    }
+
+    public void setPrimary(Boolean primary) {
+        isPrimary = primary;
+    }
 }

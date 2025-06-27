@@ -20,19 +20,55 @@ import androidx.room.PrimaryKey;
 public class CartItem {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "cart_item_id")
-    public int cartItemId;
+    private Integer cartItemId;
 
     @ColumnInfo(name = "cart_id")
     @NonNull
-    public int cartId;
+    private Integer cartId;
 
     @ColumnInfo(name = "product_id")
     @NonNull
-    public int productId;
+    private Integer productId;
 
     @ColumnInfo(name = "quantity")
-    public int quantity = 1;
+    private Integer quantity = 1;
 
-    @ColumnInfo(name = "added_at")
-    public String addedAt;
+    public CartItem() {
+    }
+
+
+
+    public Integer getCartItemId() {
+        return cartItemId;
+    }
+
+    public void setCartItemId(Integer cartItemId) {
+        this.cartItemId = cartItemId;
+    }
+
+    @NonNull
+    public Integer getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(@NonNull Integer cartId) {
+        this.cartId = cartId;
+    }
+
+    @NonNull
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(@NonNull Integer productId) {
+        this.productId = productId;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 }
