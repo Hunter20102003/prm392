@@ -1,224 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F5F8FA"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="@drawable/gradient_background">
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="32dp"
-        android:gravity="center">
+        android:gravity="center_horizontal">
 
-        <!-- Welcome Text -->
         <TextView
+            android:id="@+id/tvRegisterTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome back"
-            android:textSize="28sp"
+            android:text="Register"
+            android:textColor="#1A73E8"
+            android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="@color/purple_primary"
-            android:layout_marginTop="80dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="24dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Use your credentials below and\nlogin to your account"
-            android:textSize="14sp"
-            android:textColor="@color/gray_text"
-            android:gravity="center"
-            android:layout_marginBottom="40dp" />
-
-        <!-- Email Input -->
-        <TextView
+        <!-- Full Name -->
+        <EditText
+            android:id="@+id/etFullName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginBottom="8dp" />
+            android:layout_height="50dp"
+            android:hint="Full name"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="12dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <!-- Email -->
+        <EditText
+            android:id="@+id/etEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp"
-            app:boxBackgroundMode="filled"
-            app:boxBackgroundColor="@color/input_background"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp">
+            android:layout_height="50dp"
+            android:hint="Email"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="12dp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email here"
-                android:inputType="textEmailAddress"
-                android:textSize="16sp"
-                android:padding="16dp"
-                android:background="@android:color/transparent" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Password Input -->
-        <TextView
+        <!-- Password -->
+        <EditText
+            android:id="@+id/etPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Password"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginBottom="8dp" />
+            android:layout_height="50dp"
+            android:hint="Password"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg"
+            android:inputType="textPassword"
+            android:layout_marginBottom="12dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <!-- Confirm Password -->
+        <EditText
+            android:id="@+id/etConfirmPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp"
-            app:boxBackgroundMode="filled"
-            app:boxBackgroundColor="@color/input_background"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleDrawable="@drawable/ic_visibility_toggle">
+            android:layout_height="50dp"
+            android:hint="Confirm Password"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg"
+            android:inputType="textPassword"
+            android:layout_marginBottom="12dp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password here"
-                android:inputType="textPassword"
-                android:textSize="16sp"
-                android:padding="16dp"
-                android:background="@android:color/transparent" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Remember Me and Forgot Password -->
-        <LinearLayout
+        <!-- Address -->
+        <EditText
+            android:id="@+id/etAddress"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="32dp">
+            android:layout_height="50dp"
+            android:hint="Address"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg"
+            android:inputType="textPostalAddress"
+            android:layout_marginBottom="12dp" />
 
-            <CheckBox
-                android:id="@+id/cbRememberMe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Remember me"
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:buttonTint="@color/green_checkbox" />
+        <!-- Age -->
+        <EditText
+            android:id="@+id/etAge"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Age"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg"
+            android:inputType="number"
+            android:layout_marginBottom="24dp" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/tvForgotPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Forgot password?"
-                android:textSize="14sp"
-                android:textColor="@color/purple_primary"
-                android:clickable="true"
-                android:focusable="true"
-                android:padding="10dp"
-                android:background="?attr/selectableItemBackgroundBorderless" />
-        </LinearLayout>
-
-        <!-- Sign In Button -->
+        <!-- Register Button -->
         <Button
-            android:id="@+id/btnSignIn"
+            android:id="@+id/btnRegister"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Sign In"
-            android:textSize="16sp"
+            android:layout_height="50dp"
+            android:text="Register"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:textColor="@color/white"
-            android:background="@drawable/purple_button_background"
-            android:layout_marginBottom="24dp"
-            android:elevation="4dp" />
-
-        <!-- Sign Up Text -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="24dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Don't have an account? "
-                android:textSize="14sp"
-                android:textColor="@color/gray_text" />
-
-            <TextView
-                android:id="@+id/tvSignUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sign Up"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="@color/purple_primary"
-                android:clickable="true"
-                android:focusable="true"
-                android:padding="10dp"
-                android:background="?attr/selectableItemBackgroundBorderless" />
-        </LinearLayout>
-
-        <!-- OR Divider -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginVertical="16dp">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="@color/divider_color" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="  OR  "
-                android:textSize="14sp"
-                android:textColor="@color/gray_text" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="@color/divider_color" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnGoogle"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Continue with Google"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:background="@drawable/white_button_background"
-            android:drawableLeft="@drawable/ic_google"
-            android:drawablePadding="12dp"
-            android:gravity="center"
-            android:elevation="2dp" />
-
+            android:backgroundTint="#1A73E8" />
     </LinearLayout>
 </ScrollView>
