@@ -3,6 +3,7 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 @Entity(tableName = "product_images",
@@ -29,6 +30,20 @@ public class ProductImage {
     private Boolean isPrimary = false;
 
     public ProductImage() {
+    }
+
+    @Ignore
+    public ProductImage(@NonNull Integer productId, @NonNull String imageUrl, Boolean isPrimary) {
+        this.productId = productId;
+        this.imageUrl = imageUrl;
+        this.isPrimary = isPrimary;
+    }
+
+
+    public ProductImage(@NonNull Integer productId, @NonNull String imageUrl) {
+        this.productId = productId;
+        this.imageUrl = imageUrl;
+        this.isPrimary = false;
     }
 
 

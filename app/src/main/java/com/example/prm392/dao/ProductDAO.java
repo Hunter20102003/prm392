@@ -1,12 +1,12 @@
 package com.example.prm392.dao;
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import androidx.room.Update;
+import androidx.room.Transaction;
 
 import com.example.prm392.entity.Product;
+import com.example.prm392.entity.relation.ProductWithProductImages;
 
 import java.util.List;
 
@@ -15,5 +15,9 @@ public interface ProductDAO {
     @Query("SELECT * FROM products")
     List<Product> selectAll();
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(Product product);
+    long insert(Product product);
+
+    @Transaction
+    @Query("SELECT * FROM products")
+    List<ProductWithProductImages> getAllProductsWithImages();
 }

@@ -1,46 +1,26 @@
 package com.example.prm392.dao.room;
 
 import android.content.Context;
+import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.example.prm392.dao.CartItemDAO;
-import com.example.prm392.dao.CategoryDAO;
-import com.example.prm392.dao.DistrictDAO;
-import com.example.prm392.dao.OrderDAO;
-import com.example.prm392.dao.OrderItemDAO;
-import com.example.prm392.dao.ProductDAO;
-import com.example.prm392.dao.ProductImageDAO;
-import com.example.prm392.dao.ProvinceDAO;
-import com.example.prm392.dao.ReviewDAO;
-import com.example.prm392.dao.ShoppingCartDAO;
-import com.example.prm392.dao.UserDAO;
-import com.example.prm392.dao.WalletDAO;
-import com.example.prm392.dao.WalletTransactionDAO;
-import com.example.prm392.dao.WardDAO;
-import com.example.prm392.entity.CartItem;
-import com.example.prm392.entity.Category;
-import com.example.prm392.entity.District;
-import com.example.prm392.entity.Order;
-import com.example.prm392.entity.OrderItem;
-import com.example.prm392.entity.Product;
-import com.example.prm392.entity.ProductImage;
-import com.example.prm392.entity.Province;
-import com.example.prm392.entity.Review;
-import com.example.prm392.entity.ShoppingCart;
-import com.example.prm392.entity.User;
-import com.example.prm392.entity.UserAddress;
-import com.example.prm392.entity.Wallet;
-import com.example.prm392.entity.WalletTransaction;
-import com.example.prm392.entity.Ward;
+import com.example.prm392.dao.*;
+import com.example.prm392.entity.*;
 import com.example.prm392.utils.Converters;
 
+import java.util.concurrent.Executors;
+
 @Database(
-        entities = {User.class, Category.class,Product.class, ProductImage.class, ShoppingCart.class, CartItem.class,Order.class, OrderItem.class, Review.class, Wallet.class, WalletTransaction.class, Province.class, District.class, Ward.class, UserAddress.class},
-        version = 3,
+        entities = {User.class, Category.class, Product.class, ProductImage.class, ShoppingCart.class, CartItem.class,
+                Order.class, OrderItem.class, Review.class, Wallet.class, WalletTransaction.class,
+                Province.class, District.class, Ward.class, UserAddress.class},
+        version = 6,
         exportSchema = false
 )
 @TypeConverters({Converters.class})
@@ -67,13 +47,19 @@ public abstract class AppDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             synchronized (AppDatabase.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(
+                    RoomDatabase.Builder<AppDatabase> builder = Room.databaseBuilder(
                                     context.getApplicationContext(),
                                     AppDatabase.class,
                                     "my_app_db"
-                            )
-                            .fallbackToDestructiveMigration()
-                            .allowMainThreadQueries() // test
+                            ).allowMainThreadQueries();
+
+                    INSTANCE = builder
+                            .addCallback(new Callback() {
+                                @Override
+                                public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                                    super.onCreate(db);
+                                }
+                            })
                             .build();
                 }
             }

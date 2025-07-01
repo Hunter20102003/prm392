@@ -3,6 +3,7 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 import com.example.prm392.enums.*;
@@ -66,6 +67,20 @@ public class Product {
 
     public Product() {
     }
+
+    @Ignore
+    public Product(@NonNull String name, @NonNull String title, String description,
+                   @NonNull Double newPrice, @NonNull Integer categoryId) {
+        this.name = name;
+        this.title = title;
+        this.description = description;
+        this.newPrice = newPrice;
+        this.categoryId = categoryId;
+        this.status = ProductStatus.AVAILABLE; // hoặc gán mặc định
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
 
 
     public Integer getProductId() {
