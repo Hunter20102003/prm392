@@ -39,7 +39,7 @@ public class ProductImage {
         this.isPrimary = isPrimary;
     }
 
-
+    @Ignore
     public ProductImage(@NonNull Integer productId, @NonNull String imageUrl) {
         this.productId = productId;
         this.imageUrl = imageUrl;

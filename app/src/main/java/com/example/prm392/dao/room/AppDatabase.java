@@ -20,7 +20,7 @@ import java.util.concurrent.Executors;
         entities = {User.class, Category.class, Product.class, ProductImage.class, ShoppingCart.class, CartItem.class,
                 Order.class, OrderItem.class, Review.class, Wallet.class, WalletTransaction.class,
                 Province.class, District.class, Ward.class, UserAddress.class},
-        version = 6,
+        version = 3,
         exportSchema = false
 )
 @TypeConverters({Converters.class})
