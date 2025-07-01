@@ -7,4 +7,6 @@ import androidx.room.Query;
 import androidx.room.Update;
 @Dao
 public interface OrderItemDAO {
+    @Query ("select sum(quantity) from order_items where product_id = :id")
+    public Integer countOrderItemsByProductId(Integer id);
 }

@@ -1,7 +1,6 @@
 package com.example.prm392.bean;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.gson.annotations.SerializedName;
 
 public class WardBean {
     @JsonProperty("Id")

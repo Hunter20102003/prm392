@@ -21,7 +21,9 @@ import java.time.LocalDateTime;
         }, indices = {
         @Index(value = {"user_id"}),@Index(value={"product_id"})
 })
-public class Review {
+public class
+
+Review {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "review_id")
     private Integer reviewId;

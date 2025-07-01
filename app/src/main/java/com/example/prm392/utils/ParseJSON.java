@@ -1,14 +1,11 @@
 package com.example.prm392.utils;
 
 import android.content.Context;
-
 import com.example.prm392.bean.ProvinceBean;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.util.List;
+
 
 public class ParseJSON {
     public static ProvinceBean parseJSONFromRaw(Context context, int rawResId) {

@@ -1,5 +1,8 @@
 package com.example.prm392.bean;
 
+import com.example.prm392.entity.Product;
+import com.example.prm392.entity.User;
+
 import java.time.LocalDate;
 
 public class ReviewBean {
@@ -9,6 +12,8 @@ public class ReviewBean {
     private String comment;
     private Integer rating;
     private LocalDate reviewDate;
+    private User user;
+    private Product product;
 
     public ReviewBean() {
     }
@@ -63,5 +68,29 @@ public class ReviewBean {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

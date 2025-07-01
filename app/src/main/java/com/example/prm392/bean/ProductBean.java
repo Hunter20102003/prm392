@@ -1,8 +1,10 @@
 package com.example.prm392.bean;
 
+import com.example.prm392.entity.ProductImage;
 import com.example.prm392.enums.ProductStatus;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class ProductBean {
     private Integer productId;
@@ -18,8 +20,12 @@ public class ProductBean {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private ProductStatus status ;
+    private CategoryBean category;
+    private List<ProductImageBean> productImageList;
+
 
     public ProductBean() {
+        productImageList = new java.util.ArrayList<>();
     }
 
     public Integer getProductId() {
@@ -122,5 +128,21 @@ public class ProductBean {
     }
     public void setWeight(String weight) {
         this.weight = weight;
+    }
+
+    public CategoryBean getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryBean category) {
+        this.category = category;
+    }
+
+    public List<ProductImageBean> getProductImageList() {
+        return productImageList;
+    }
+
+    public void setProductImageList(List<ProductImageBean> productImageList) {
+        this.productImageList = productImageList;
     }
 }
