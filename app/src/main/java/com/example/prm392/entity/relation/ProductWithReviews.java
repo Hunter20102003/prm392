@@ -10,6 +10,8 @@ import java.util.List;
 
 public class ProductWithReviews {
     @Embedded public Product product;
+
+
     @Relation(parentColumn = "product_id", entityColumn = "product_id")
     public List<Review> reviews;
 }
