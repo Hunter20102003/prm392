@@ -1,29 +1,30 @@
 package com.example.prm392.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.prm392.R;
 import com.example.prm392.bean.ProvinceBean;
 import com.example.prm392.dao.CategoryDAO;
-import com.example.prm392.dao.ProvinceDAO;
 import com.example.prm392.dao.room.AppDatabase;
 import com.example.prm392.entity.Category;
-import com.example.prm392.entity.Province;
 import com.example.prm392.repository.LocationRepository;
+import com.example.prm392.ui.activity.LoginActivity;
+import com.example.prm392.ui.activity.SignUpActivity;
 import com.example.prm392.utils.ParseJSON;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private CategoryDAO categoryDAO;
-
+    private Button btnSignIn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        btnSignIn = findViewById(R.id.btn_sign_in);
         // Lấy CategoryDAO
         AppDatabase db = AppDatabase.getInstance(this);
         categoryDAO = db.categoryDAO();
@@ -48,9 +49,16 @@ public class MainActivity extends AppCompatActivity {
         //insert location data
 //       locationRepository.insertLocationData(provinceBean);
        Log.d("Province",locationRepository.getProvince().toString());
-
-
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class) );
+                finish(); // or start sign in activity
+            }
+        });
     }
+
+
 
 //    private void printAllCategories() {
 //        List<Category> categories = categoryDAO.getAll();

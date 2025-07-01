@@ -1,5 +1,6 @@
 package com.example.prm392.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.prm392.R;
+import com.example.prm392.activity.MainActivity;
+import com.example.prm392.dao.UserDAO;
+import com.example.prm392.dao.room.AppDatabase;
+import com.example.prm392.entity.User;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class LoginActivity extends AppCompatActivity {
@@ -18,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     private CheckBox cbRememberMe;
     private Button btnSignIn, btnGoogle;
     private TextView tvForgotPassword, tvSignUp;
+    private TextView tvError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         btnGoogle = findViewById(R.id.btnGoogle);
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
         tvSignUp = findViewById(R.id.tvSignUp);
+        tvError = findViewById(R.id.tvError);
     }
 
     private void setClickListeners() {
@@ -93,20 +100,28 @@ public class LoginActivity extends AppCompatActivity {
             etEmail.requestFocus();
             return;
         }
+        AppDatabase db = AppDatabase.getInstance(getApplicationContext());
+        UserDAO dao = db.userDao();
+        User user = dao.login(email, password);
+        if(user != null) {
+            tvError.setVisibility(View.GONE);
+//            Toast.makeText(this, "Tạo tài khoản thành công!", Toast.LENGTH_SHORT).show();
 
-        // Perform login logic here
-        Toast.makeText(this, "Signing in...", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.putExtra("userId", user.getUserId());
+            startActivity(intent);
+            finish();
+        }else{
+            tvError.setText("Invalid Email or Password");
+            tvError.setVisibility(View.VISIBLE);
+        }
+
 
         // Example: Save remember me preference
         if (cbRememberMe.isChecked()) {
             // Save login credentials or token
             Toast.makeText(this, "Remember me enabled", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    private void handleAppleLogin() {
-        Toast.makeText(this, "Continue with Apple clicked", Toast.LENGTH_SHORT).show();
-        // Implement Apple Sign-In logic here
     }
 
     private void handleGoogleLogin() {
@@ -120,8 +135,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void handleSignUp() {
-        Toast.makeText(this, "Sign up clicked", Toast.LENGTH_SHORT).show();
-        // Navigate to sign up screen
+        Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+        startActivity(intent);
     }
 
     private boolean isValidEmail(String email) {
