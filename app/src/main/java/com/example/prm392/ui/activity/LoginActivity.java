@@ -1,6 +1,7 @@
 package com.example.prm392.ui.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -104,8 +105,13 @@ public class LoginActivity extends AppCompatActivity {
         UserDAO dao = db.userDao();
         User user = dao.login(email, password);
         if(user != null) {
+            SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("user_role", user.getRole().toString());
+            editor.putBoolean("isLoggedIn", true);
+            editor.apply();
             tvError.setVisibility(View.GONE);
-//            Toast.makeText(this, "Tạo tài khoản thành công!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, user.getRole().toString(), Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             intent.putExtra("userId", user.getUserId());
