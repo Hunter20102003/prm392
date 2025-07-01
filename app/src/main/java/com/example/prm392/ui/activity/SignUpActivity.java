@@ -23,7 +23,7 @@ import java.time.LocalDateTime;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    private EditText etFullName, etEmail, etPassword, etConfirmPassword, etAddress, etAge;
+    private EditText etEmail, etFullname, etPassword, etConfirmPassword;
     private CheckBox cbTerms;
     private Button btnSignUp, btnGoogle, btnFacebook;
     private TextView tvSignIn;
@@ -46,12 +46,10 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        etFullName = findViewById(R.id.et_full_name);
         etEmail = findViewById(R.id.et_email);
+        etFullname = findViewById(R.id.et_full_name);
         etPassword = findViewById(R.id.et_password);
         etConfirmPassword = findViewById(R.id.et_confirm_password);
-        etAddress = findViewById(R.id.et_address);
-        etAge = findViewById(R.id.et_age);
 //        cbTerms = findViewById(R.id.cb_terms);
         btnSignUp = findViewById(R.id.btn_sign_up);
         btnGoogle = findViewById(R.id.btn_google);
@@ -102,20 +100,17 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void handleSignUp() {
-        String fullName = etFullName.getText().toString().trim();
+        String fullName = etFullname.getText().toString().trim();
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
         String confirmPassword = etConfirmPassword.getText().toString().trim();
-        String address = etAddress.getText().toString().trim();
-        String ageStr = etAge.getText().toString().trim();
 
-        // Validation
+
         if (TextUtils.isEmpty(fullName)) {
-            etFullName.setError("Full name is required");
-            etFullName.requestFocus();
+            etEmail.setError("Full name is required");
+            etEmail.requestFocus();
             return;
         }
-
         if (TextUtils.isEmpty(email)) {
             etEmail.setError("Email is required");
             etEmail.requestFocus();
@@ -152,31 +147,6 @@ public class SignUpActivity extends AppCompatActivity {
             return;
         }
 
-        if (TextUtils.isEmpty(address)) {
-            etAddress.setError("Address is required");
-            etAddress.requestFocus();
-            return;
-        }
-
-        if (TextUtils.isEmpty(ageStr)) {
-            etAge.setError("Age is required");
-            etAge.requestFocus();
-            return;
-        }
-
-        int age;
-        try {
-            age = Integer.parseInt(ageStr);
-            if (age < 1 || age > 120) {
-                etAge.setError("Please enter a valid age");
-                etAge.requestFocus();
-                return;
-            }
-        } catch (NumberFormatException e) {
-            etAge.setError("Please enter a valid age");
-            etAge.requestFocus();
-            return;
-        }
 
 //        if (!cbTerms.isChecked()) {
 //            Toast.makeText(this, "Please agree to the Terms of Service and Privacy Policy", Toast.LENGTH_LONG).show();
@@ -184,11 +154,10 @@ public class SignUpActivity extends AppCompatActivity {
 //        }
 
         // If all validations pass, proceed with sign up
-        performSignUp(fullName, email, password, address, age);
+        performSignUp(fullName, email, password);
     }
 
-    private void performSignUp(String fullName, String email, String password, String address, int age) {
-        // Kiểm tra email đã tồn tại chưa
+    private void performSignUp(String fullName,String email, String password) {
         User existingUser = userDAO.getUserByEmail(email);
         if (existingUser != null) {
             Toast.makeText(this, "Email đã được sử dụng!", Toast.LENGTH_LONG).show();
@@ -197,14 +166,11 @@ public class SignUpActivity extends AppCompatActivity {
 
         // Tạo User mới
         User user = new User();
-        user.setEmail(email);
-        user.setPassword(password); // Lưu ý: bạn nên mã hoá mật khẩu thực tế
         user.setFullName(fullName);
-        user.setPhone(null); // nếu có field này
-        user.setImageUrl(null); // nếu có
+        user.setEmail(email);
+        user.setPassword(password);
         user.setCreatedAt(LocalDateTime.now());
         user.setUpdatedAt(LocalDateTime.now());
-
         userDAO.insertUser(user);
 
         Toast.makeText(this, "Tạo tài khoản thành công!", Toast.LENGTH_SHORT).show();
