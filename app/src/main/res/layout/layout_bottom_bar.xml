@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:background="#FFFFFF"
+    android:elevation="6dp">
+
+    <LinearLayout
+        android:id="@+id/bottomMenuBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:padding="4dp">
+
+        <!-- Trang chủ -->
+        <LinearLayout
+            android:id="@+id/btnHome"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_home" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trang chủ"
+                android:textSize="12sp"
+                android:textColor="#444444"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <!-- Danh mục -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_category" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Danh mục"
+                android:textSize="12sp"
+                android:textColor="#444444"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <!-- Hỗ trợ -->
+        <LinearLayout
+            android:id="@+id/btnSupport"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_support" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hỗ trợ"
+                android:textSize="12sp"
+                android:textColor="#444444"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <!-- Giỏ hàng (có badge) -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iconCart"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_cart" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Giỏ hàng"
+                    android:textSize="12sp"
+                    android:textColor="#444444"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <!-- Badge đỏ hiển thị số lượng -->
+            <TextView
+                android:id="@+id/cartBadge"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:background="#FF0000"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="10dp"/>
+        </FrameLayout>
+
+        <!-- Nút đặt mua -->
+        <LinearLayout
+            android:id="@+id/btnOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="6dp"
+            android:paddingHorizontal="12dp"
+            android:background="#FF6200EE"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đặt mua"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/totalPrice"
+                android:text="0đ"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

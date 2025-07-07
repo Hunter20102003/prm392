@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 
 import com.example.prm392.R;
 import com.example.prm392.adapter.CategoryAdapter;
@@ -45,6 +46,7 @@ public class HomeFragment extends Fragment {
 
         loadCategory();
         loadSuggestedProducts();
+
 
         return view;
     }

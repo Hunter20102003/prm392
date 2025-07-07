@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Header -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Help Center"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="center"/>
+
+    <!-- Search box -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="Search for Topics Or question..."
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:background="#D3D3D0"
+        android:paddingStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Frequently Asked (gợi ý) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:background="#E0E0E0"
+            android:padding="12dp">
+
+            <TextView
+                android:text="How do I cancel an existing order?"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <Space android:layout_width="8dp" android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:background="#E0E0E0"
+            android:padding="12dp">
+
+            <TextView
+                android:text="What are the other shipping options?"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Topics -->
+    <TextView
+        android:text="Topics"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="12dp">
+
+        <TextView android:text="• Returns and Refunds - 12 articles" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView android:text="• Shipping and Delivery - 8 articles" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView android:text="• Payments - 2 articles" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Button Start Conversation -->
+    <Button
+        android:id="@+id/btnStartConversation"
+        android:text="Start a conversation"
+        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#00BCD4"/>
+</LinearLayout>
