@@ -3,6 +3,8 @@ package com.example.prm392.activity;
 import android.os.Bundle;
 import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.prm392.Fragment.HomeFragment;
 import com.example.prm392.R;
 import com.example.prm392.bean.ProvinceBean;
 import com.example.prm392.dao.CategoryDAO;
@@ -49,46 +51,12 @@ public class MainActivity extends AppCompatActivity {
 //       locationRepository.insertLocationData(provinceBean);
        Log.d("Province",locationRepository.getProvince().toString());
 
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main, new HomeFragment())
+                .commit();
 
     }
 
-//    private void printAllCategories() {
-//        List<Category> categories = categoryDAO.getAll();
-//        for (Category c : categories) {
-//            Log.d("CATEGORY_LOG", "ID: " + c.getCategoryId() +
-//                    ", Name: " + c.getName() +
-//                    ", Description: " + c.getDescription());
-//        }
-//    }
-//    private void seedDataIfNeeded(Context context) {
-//        SharedPreferences prefs = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE);
-//        boolean isSeeded = prefs.getBoolean("data_seeded", false);
-//
-//        if (!isSeeded) {
-//                try {
-//                    ProvinceBean provinceBean=ParseJSON.parseJSON(context,String.valueOf(R.raw.hanoi));
-//
-//                    // Convert DTO → Entity
-//                    Province province = new Province(provinceBean.getId(), provinceBean.getName());
-//                    long provinceId = AppDatabase.Prov().insert(province);
-//
-//                    for (DistrictDto districtDto : provinceDto.Districts) {
-//                        District district = new District(districtDto.Id, districtDto.Name, provinceId);
-//                        long districtId = db.districtDao().insert(district);
-//
-//                        for (WardDto wardDto : districtDto.Wards) {
-//                            Ward ward = new Ward(wardDto.Id, wardDto.Name, wardDto.Level, districtId);
-//                            db.wardDao().insert(ward);
-//                        }
-//                    }
-//
-//                    prefs.edit().putBoolean("data_seeded", true).apply(); // Đánh dấu đã insert
-//
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//        }
-//    }
+
 
 }

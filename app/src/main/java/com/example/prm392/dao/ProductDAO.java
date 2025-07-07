@@ -20,4 +20,9 @@ public interface ProductDAO {
     @Transaction
     @Query("SELECT * FROM products")
     List<ProductWithProductImages> getAllProductsWithImages();
+
+    @Transaction
+    @Query("SELECT * FROM products ORDER BY RANDOM() LIMIT :limit")
+    List<ProductWithProductImages> getRandomWithImages(int limit);
+
 }

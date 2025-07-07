@@ -68,4 +68,10 @@ public class Category {
     }
 
 
+    public long getId() {
+        if (categoryId == null) {
+            return -1; // or throw an exception
+        }
+        return categoryId;
+    }
 }
