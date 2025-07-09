@@ -28,6 +28,10 @@ public class UserAddress {
     private Integer wardId;
     @ColumnInfo(name="address_detail")
     private String addressDetail;
+    @ColumnInfo(name="full_name")
+    private String fullName;
+    @ColumnInfo(name="phone_number")
+    private String phoneNumber;
     @ColumnInfo(name = "is_default")
     private Boolean isDefault=false;
 
@@ -88,5 +92,21 @@ public class UserAddress {
 
     public void setDefault(Boolean aDefault) {
         isDefault = aDefault;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

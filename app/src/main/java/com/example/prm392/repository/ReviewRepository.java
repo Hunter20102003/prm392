@@ -38,5 +38,8 @@ public class ReviewRepository {
        return reviews;
 
     }
+    public Double getAvgRatingByProductId(Integer productId) {
+        return reviewDAO.getAverageRatingByProductId(productId);
+    }
 
 }

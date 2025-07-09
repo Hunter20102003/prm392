@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">prm392</string>
+    <string name="checkbox_select_item">Chọn sản phẩm</string>
+    <string name="product_image">Ảnh sản phẩm</string>
+    <string name="product_name">Tên sản phẩm</string>
+    <string name="product_price">₫0</string>
+    <string name="default_quantity">1</string>
+    <string name="minus">−</string>
+    <string name="plus">+</string>
+    <string name="delete">Xóa</string>
+
 </resources>

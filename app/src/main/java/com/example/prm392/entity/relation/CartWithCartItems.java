@@ -10,10 +10,10 @@ import java.util.List;
 
 public class CartWithCartItems {
     @Embedded
-    ShoppingCart shoppingCart;
+    public ShoppingCart shoppingCart;
     @Relation(
             parentColumn = "cart_id",
             entityColumn = "cart_id"
     )
-    List<CartItem> cartItems;
+   public  List<CartItem> cartItems;
 }

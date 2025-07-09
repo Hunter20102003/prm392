@@ -34,5 +34,8 @@ public interface ReviewDAO {
     @Transaction
     @Query("SELECT * FROM reviews where product_id = :productId ")
     List<ReviewWithUser> getReviewByProductId(Integer productId);
+    @Transaction
+    @Query("SELECT AVG(rating) FROM reviews where product_id = :productId ")
+    Double getAverageRatingByProductId(Integer productId);
 
 }

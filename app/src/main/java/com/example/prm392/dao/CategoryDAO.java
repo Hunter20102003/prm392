@@ -13,7 +13,7 @@ import java.util.List;
 
 @Dao
 public interface CategoryDAO {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Category category);
 
     @Query("SELECT * FROM categories")

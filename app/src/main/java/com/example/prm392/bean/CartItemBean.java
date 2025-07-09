@@ -5,6 +5,8 @@ public class CartItemBean {
     private Integer cartId;
     private Integer productId;
     private Integer quantity;
+    private ProductBean product;
+    private boolean isChecked = false;  // Thêm trạng thái check mặc định là false
 
     public CartItemBean() {
     }
@@ -39,5 +41,21 @@ public class CartItemBean {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public ProductBean getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductBean product) {
+        this.product = product;
+    }
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
 }

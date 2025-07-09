@@ -23,35 +23,34 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = new Intent(MainActivity.this, ProductDetail.class);
-       // intent.putExtra("productId", 1); // 1 là id sản phẩm ví dụ
-        startActivity(intent);
+//        Intent intent = new Intent(MainActivity.this, ProductDetail.class);
+//        intent.putExtra("productId", 1); // 1 là id sản phẩm ví dụ
+//        startActivity(intent);
 //       //  Lấy CategoryDAO
-//       AppDatabase db = AppDatabase.getInstance(this);
-//     categoryDAO = db.categoryDAO();
-//     Log.d("test",categoryDAO.getAll().toString());
+       AppDatabase db = AppDatabase.getInstance(this);
+     categoryDAO = db.categoryDAO();
+     Log.d("test",categoryDAO.getAll().toString());
 //
 //        // Thêm category mẫu
-//        Category cat = new Category();
-//        cat.setName("Đàn Guitar");
-//        cat.setDescription("Các loại đàn guitar acoustic và electric") ;
-//        cat.setImageUrl(null);
+        Category cat = new Category();
+        cat.setName("Giấy ăn");
+        cat.setDescription("") ;
+        cat.setImageUrl(null);
 //
 //
-//      // categoryDAO.insert(cat);
+        categoryDAO.insert(cat);
 //
 //        // In ra tất cả category
-//        String json = ParseJSON.loadJSONFromRaw(this, R.raw.hanoi).toString();
-//        Log.d("DEBUG", "JSON content = " + json);
+        String json = ParseJSON.loadJSONFromRaw(this, R.raw.hanoi).toString();
+       Log.d("DEBUG", "JSON content = " + json);
 //
-//        ProvinceBean provinceBean = ParseJSON.parseJSONFromRaw(this, R.raw.hanoi);
-//        Log.d("DEBUGG", "ProvinceBean = " + provinceBean.getDistricts().size());
-//        Log.d("DB", "AppDatabase created");
-
-       // LocationRepository locationRepository = new LocationRepository(this);
-        //insert location data
-//       locationRepository.insertLocationData(provinceBean);
-      // Log.d("Province",locationRepository.getProvince().toString());
+        ProvinceBean provinceBean = ParseJSON.parseJSONFromRaw(this, R.raw.hanoi);
+       Log.d("DEBUGG", "ProvinceBean = " + provinceBean.getDistricts().size());
+//
+      LocationRepository locationRepository = new LocationRepository(this);
+     // insert location data
+      locationRepository.insertLocationData(provinceBean);
+      Log.d("Province",locationRepository.getProvince().toString());
 
 
     }

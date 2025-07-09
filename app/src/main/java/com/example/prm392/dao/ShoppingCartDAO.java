@@ -5,6 +5,16 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import com.example.prm392.entity.CartItem;
+import com.example.prm392.entity.ShoppingCart;
+
 @Dao
 public interface ShoppingCartDAO {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    public void insert(ShoppingCart shoppingCart);
+@Query("select * from shopping_cart where cart_id=:cart_id")
+    ShoppingCart getShoppingCartById(int cart_id);
+@Query("select * from shopping_cart where user_id=:userId")
+    ShoppingCart getShoppingCartByUserId(int userId);
 }

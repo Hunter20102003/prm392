@@ -1,4 +1,5 @@
 package com.example.prm392.entity;
+
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -9,7 +10,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "shopping_cart",
         foreignKeys = @ForeignKey(entity = User.class,
                 parentColumns = "user_id",
-                childColumns = "user_id"),indices = {
+                childColumns = "user_id"), indices = {
         @Index(value = {"user_id"})
 })
 public class ShoppingCart {

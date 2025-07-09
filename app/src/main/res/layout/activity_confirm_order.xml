@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F9F9F9">
+
+    <!-- Thanh điều hướng quay lại -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        android:padding="16dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_media_previous" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xác nhận đơn hàng"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginStart="12dp"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Địa chỉ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:background="@android:color/white"
+                android:elevation="2dp">
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Số 123, Quận ABC"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvEditAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chỉnh sửa"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Danh sách sản phẩm -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerConfirmOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@android:color/white"
+                android:elevation="2dp" />
+
+            <!-- Mã giảm giá -->
+            <EditText
+                android:id="@+id/edtDiscountCode"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="Mã giảm giá"
+                android:layout_marginTop="12dp"
+                android:background="@android:color/white"
+                android:padding="16dp"
+                android:textSize="14sp"
+                android:inputType="text"
+                android:importantForAutofill="yes"
+                android:minHeight="56dp" />
+
+            <!-- Ghi chú -->
+            <EditText
+                android:id="@+id/edtNote"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint="Ghi chú cho đơn hàng"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/white"
+                android:padding="16dp"
+                android:textSize="14sp"
+                android:inputType="textCapSentences|textMultiLine"
+                android:importantForAutofill="yes"
+                android:minHeight="56dp" />
+
+            <!-- Tổng tiền -->
+            <TextView
+                android:id="@+id/tvConfirmTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tổng: 0đ"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
+                android:textColor="#000000" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Nút xác nhận -->
+    <Button
+        android:id="@+id/btnConfirmOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="XÁC NHẬN ĐẶT HÀNG"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:textColor="@android:color/white"
+        android:layout_margin="16dp"
+        android:padding="16dp" />
+
+</LinearLayout>
